@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="config.properties">
+	</properties>
+	<typeAliases>
+		<!-- <typeAlias alias="Blog" type="com.lvdousha.jdbc.mybatis.model.Blog"/> -->
+		<package name="com.lvdousha.jdbc.mybatis.model" />
+	</typeAliases>
+	<!-- <typeHandlers>
+		<package name="com.lvdousha.jdbc.mybatis.typeHandler"/>	
+	</typeHandlers> -->
+	<plugins>
+		<plugin interceptor="com.lvdousha.jdbc.mybatis.plugin.ExecutorPlugin">
+			<property name="someProperty" value="100" />
+		</plugin>
+		<plugin interceptor="com.lvdousha.jdbc.mybatis.plugin.StatementHandlerPlugin">
+			<property name="someProperty" value="100" />
+		</plugin>
+		<plugin interceptor="com.lvdousha.jdbc.mybatis.plugin.ParameterHandlerPlugin">
+			<property name="someProperty" value="100" />
+		</plugin>
+	</plugins>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="mybatis/UserMapper.xml" />
+		<mapper resource="mybatis/UserDetailMapper.xml" />
+	</mappers>
+</configuration>
