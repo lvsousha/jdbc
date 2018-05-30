@@ -19,10 +19,10 @@ public class StatementHandlerPlugin implements Interceptor {
 
 	public Object intercept(Invocation invocation) throws Throwable {
 		log.info("StatementHandlerPlugin");
-		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
-		BoundSql boundSql = statementHandler.getBoundSql();
-		log.info(boundSql.getSql());
-		log.info(boundSql.getParameterObject());
+//		StatementHandler statementHandler = (StatementHandler) invocation.getTarget();
+//		BoundSql boundSql = statementHandler.getBoundSql();
+//		log.info(boundSql.getSql());
+//		log.info(boundSql.getParameterObject());
 		return invocation.proceed();
 	}
 
