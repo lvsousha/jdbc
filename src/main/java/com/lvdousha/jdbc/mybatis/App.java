@@ -35,6 +35,7 @@ public class App{
     			BoundSql boundSql = ms.getBoundSql(1);
     			System.out.println(namespaceId);
     			System.out.println(boundSql.getSql());
+    			System.out.println(ms.getStatementType());
     			
     		}
     	}
@@ -44,10 +45,14 @@ public class App{
 //    		UserDetailMapper userDetailMapper = session.getMapper(UserDetailMapper.class);
 //    		UserDetail userDetail = userDetailMapper.select(1);
 //    		System.out.println(userDetail.getName());
-    		User user = userMapper.selectUser(1);
-    		System.out.println(user.getName());
-    		User user2 = session.selectOne("com.lvdousha.jdbc.mybatis.mapper.UserMapper.selectUser", 1);
-    		System.out.println(user2.getName());
+//    		User user = userMapper.selectUser(1);
+//    		System.out.println(user.getName());
+//    		User user2 = session.selectOne("com.lvdousha.jdbc.mybatis.mapper.UserMapper.selectUser", 1);
+//    		session.insert(null, null);
+//    		System.out.println(user.getName());
+    		User user = new User();
+    		user.setName("test");
+    		userMapper.insertUser(user);
 //    		System.out.println(user.getUserDetails().size());
 //    		List<User> users = new ArrayList<User>();
 //    		for(int i=0; i < 10; i++){
